@@ -8,7 +8,7 @@ def load_data(filepath):
     return pd.read_csv(filepath)
 
 # Load the updated dataset with SIC descriptions
-data = load_data(r"C:\Users\thoma\Downloads\merged_filtered_wrds_with_sic_descriptions.csv")
+data = load_data("merged_filtered_wrds_with_sic_descriptions.csv")
 
 # App Title
 st.title("Mergers & Acquisitions Candidate Screening Tool")
