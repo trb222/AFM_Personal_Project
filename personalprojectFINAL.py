@@ -104,7 +104,7 @@ if not filtered_data.empty:
         options=list(label_mapping.values())
     )
 
-    # Map the selected metric back to its column name
+    # Map the selected metric back to the original column name in the dataset
     reverse_label_mapping = {v: k for k, v in label_mapping.items()}
     metric_column = reverse_label_mapping.get(visualization_metric)
 
@@ -112,9 +112,9 @@ if not filtered_data.empty:
     fig = px.bar(
         filtered_data,
         x="TICKER",
-        y=metric_column,  # Use the updated column name
+        y=label_mapping[metric_column],  # Use the readable column name
         title=f"{visualization_metric} by Company",
-        labels={"TICKER": "Company", metric_column: visualization_metric}
+        labels={"TICKER": "Company", label_mapping[metric_column]: visualization_metric}
     )
     st.plotly_chart(fig)
 
