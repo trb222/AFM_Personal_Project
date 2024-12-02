@@ -5,7 +5,14 @@ import plotly.express as px
 # Load data
 @st.cache_data
 def load_data(filepath):
-    return pd.read_csv(filepath)
+    data = pd.read_csv(filepath)
+    
+    # Format applicable columns as percentages
+    percentage_columns = ["roa", "roe", "npm"]  # Columns to be formatted as percentages
+    for col in percentage_columns:
+        if col in data.columns:
+            data[col] = data[col] * 100  # Convert to percentage
+    return data
 
 # Load the updated dataset with SIC descriptions
 data = load_data("merged_filtered_wrds_with_sic_descriptions.csv")
@@ -26,9 +33,9 @@ st.sidebar.write("### Ratio Screening Options")
 
 # Mapping for human-readable labels
 label_mapping = {
-    "roa": "Return on Assets",
-    "roe": "Return on Equity",
-    "npm": "Net Profit Margin",
+    "roa": "Return on Assets (%)",
+    "roe": "Return on Equity (%)",
+    "npm": "Net Profit Margin (%)",
     "de_ratio": "Debt to Equity Ratio",
     "debt_ebitda": "Debt/EBITDA",
     "ebitda": "EBITDA"
@@ -97,13 +104,17 @@ if not filtered_data.empty:
         options=list(label_mapping.values())
     )
 
+    # Map the selected metric back to its column name
+    reverse_label_mapping = {v: k for k, v in label_mapping.items()}
+    metric_column = reverse_label_mapping.get(visualization_metric)
+
     # Generate a bar chart for the selected metric
     fig = px.bar(
         filtered_data,
         x="TICKER",
-        y=visualization_metric,  # Use the updated column name
+        y=metric_column,  # Use the updated column name
         title=f"{visualization_metric} by Company",
-        labels={"TICKER": "Company", visualization_metric: visualization_metric}
+        labels={"TICKER": "Company", metric_column: visualization_metric}
     )
     st.plotly_chart(fig)
 
