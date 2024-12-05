@@ -93,6 +93,25 @@ The Mergers & Acquisitions Candidate Screening Tool is a web application built u
     Access Yahoo Finance links for additional information.
     Download results as a CSV file for external use.
 
+    EXAMPLE CRITERIA:
+    For a company with high profitability and low debt
+    EBITDA:
+        Minimum: 50 (e.g., $50M)
+        Maximum: Leave blank (no maximum)
+    Return on Assets (ROA %):
+        Minimum: 10%
+        Maximum: Leave blank
+    Return on Equity (ROE %):
+        Minimum: 15%
+        Maximum: Leave blank
+    Net Profit Margin (NPM %):
+        Minimum: 20%
+        Maximum: Leave blank
+    Debt to Equity Ratio:
+        Maximum: 0.5
+    Industry:
+        Select: "Semiconductors and related devices"
+
 **Technical Details**
 
     Data Caching
