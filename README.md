@@ -14,7 +14,9 @@ The Mergers & Acquisitions Candidate Screening Tool is a web application built u
 **Features**
 
     1. Screening Parameters
+    
     Filter by EBITDA:
+    
     Minimum and maximum values can be specified.
     Apply numeric filters for key financial ratios:
     Return on Assets (ROA %)
@@ -22,22 +24,30 @@ The Mergers & Acquisitions Candidate Screening Tool is a web application built u
     Net Profit Margin (NPM %)
     Debt to Equity Ratio
     Debt/EBITDA
+    
     Industry-based filtering:
+    
     Select specific industries from a dropdown menu.
     All filters are optional and customizable.
+    
     2. Dynamic Results
     Displays a filtered dataset based on user-defined criteria.
     Removes unnecessary columns (e.g., SIC, GICS sector) for cleaner presentation.
     Renames columns for better readability.
+    
     3. Interactive Visualizations
     Generate bar charts for selected metrics (e.g., ROA, ROE, EBITDA) by company.
     Visualize data dynamically based on filtered results.
+    
     4. Reporting Module
     Summarize results with descriptive statistics.
     Includes Yahoo Finance links for filtered companies' tickers.
     Allows users to download filtered results as a CSV file for further analysis.
-    Getting Started
-    Prerequisites
+    
+Getting Started
+
+**Prerequisites**
+
     Install Python (3.8 or higher).
 
 **Install required Python packages:**
